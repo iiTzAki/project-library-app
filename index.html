@@ -16,52 +16,55 @@
                     <path d="M9 3V18H12V3H9M12 5L16 18L19 17L15 4L12 5M5 5V18H8V5H5M3 19V21H21V19H3Z"></path>
                 </svg>                
             </a>
-            <h1 class="header-text">Library App</h1>
+            <h1 class="header-text">Library</h1>
         </div>
-        <button onclick=showNewBookDialog(true) class="new-book-btn">New Book</button>
+        <button class="new-book-btn">New Book</button>
         <dialog id="new-book-dialog">
             <div class="dialog-wrapper">
 
-                <button>Close</button>
+                <button class="close-dialog-btn">Close</button>
                 <h2>Add New Book</h2>
 
-                <form class="dialog-form" action="">
+                <form class="dialog-form" id="book-dialog-form" action="">
 
                     <div class="form-input">
                         <label for="title-book">Book Title:</label>
-                        <input type="text" name="title" id="title-book" required>
+                        <input autofocus type="text" name="title" id="title-book">
                     </div>
 
                     <div class="form-input">
                         <label for="author-book">Book's Author:</label>
-                        <input type="text" name="author" id="author-book" required>
+                        <input type="text" name="author" id="author-book">
                     </div>
                     
                     <div class="form-input">
                         <label for="pages-book">Total Pages:</label>
-                        <input type="number" name="total-pages" id="pages-book" required>
+                        <input type="number" name="total-pages" id="pages-book">
                     </div>
 
                     <fieldset>
                         <legend>Read Status</legend>
                         <div class="radio-tile-group">
                             <div class="input-container">
-                                <input name="read-status" id="status-already-read" type="radio">
+                                <input name="read-status" id="status-already-read" value="Already Read" class="read-status" type="radio">
                                 <div class="radio-tile">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <path d="M17,4V10L15,8L13,10V4H9V20H19V4H17M3,7V5H5V4C5,2.89 5.9,2 7,2H1
-                                        9C20.05,2 21,2.95 21,4V20C21,21.05 20.05,22 19,22H7C5.95,22 5,21.05 5,20V19H3V17H5V13H3V11H5V7H3M5,
-                                        5V7H7V5H5M5,19H7V17H5V19M5,13H7V11H5V13Z" />
+                                        <path d="M16.75 22.16L14 19.16L15.16 18L16.75 19.59L20.34
+                                        16L21.5 17.41L16.75 22.16M17 4V10L15 8L13 10V4H9V20H12.08C12.2
+                                        20.72 12.45 21.39 12.8 22H7C5.95 22 5 21.05 5 20V19H3V17H5V13H3V11H5V7H3V5H5V4C5 2.89 5.9 2 7 2H19C20.05 2 21 2.95 21
+                                        4V13.8C20.39 13.45 19.72 13.2 19 13.08V4H17M5 19H7V17H5V19M5 13H7V11H5V13M5 7H7V5H5V7Z" />
                                     </svg>
                                     <label for="status-already-read">Already Read</label>
                                 </div>
                             </div>
                             <div class="input-container">
-                                <input id="status-not-read" name="read-status" type="radio">
+                                <input id="status-not-read" name="read-status" value="Not Yet Read" class="read-status" type="radio">
                                 <div class="radio-tile">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <path d="M17,4V10L15,8L13,10V4H9V20H19V4H17M3,7V5H5V4C5,2.89 5.9,2 7,2H19C20.05,2 21,2.95 21,4V20C21,
-                                        21.05 20.05,22 19,22H7C5.95,22 5,21.05 5,20V19H3V17H5V13H3V11H5V7H3M5,5V7H7V5H5M5,19H7V17H5V19M5,13H7V11H5V13Z" />
+                                        <path d="M17 4V10L15 8L13 10V4H9V20H12.1C12.2 20.7 12.5 21.4 12.8 22H7C5.9 22
+                                        5 21 5 20V19H3V17H5V13H3V11H5V7H3V5H5V4C5 2.9 5.9 2 7 2H19C20 2 21 3 21 4V13.8C20.4 13.4 19.7
+                                        13.2 19 13.1V4H17M5 19H7V17H5V19M5 13H7V11H5V13M5 7H7V5H5V7M20.1 15.5L18 17.6L15.9 15.5L14.5 16.9L16.6 19L14.5
+                                        21.1L15.9 22.5L18 20.4L20.1 22.5L21.5 21.1L19.4 19L21.5 16.9L20.1 15.5Z" />
                                     </svg>
                                     <label for="status-not-read">Not Yet Read</label>
                                 </div>
@@ -69,39 +72,14 @@
                         </div>
                     </fieldset>
 
-                    <button id="form-submit-btn" type="submit">Create</button>                    
+                    <button id="form-submit-btn" type="submit">Add</button>                    
                 </form>
 
             </div>
         </dialog>
         </div>
     </div>
-    <div id="grid-container">
-        <!-- <div class="card-wrapper">
-                <div class="book-details-wrapper">
-                    <h1>The Slient</h1>
-                    <div class="text-wrapper">
-                        <h3>Author:</h3>
-                        <p>Sun Tzu</p>
-                    </div>
-                    <div class="text-wrapper">
-                        <h3>Pages:</h3>
-                        <p>152</p>
-                    </div>
-                    <div class="text-wrapper">
-                        <h3>Reading Status:</h3>
-                        <p>Read Already</p>
-                    </div>
-                </div>
-                <div class="toggle-button-wrapper">
-                    <button class="read-button toggle-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 1L14 6V17L19 12.5V1M21 5V18.5C19.9 18.15 18.7 18 17.5 18C15.8 18 13.35 18.65 12 19.5V6C10.55 4.9 8.45 4.5 6.5 4.5C4.55 4.5 2.45 4.9 1 6V20.65C1 20.9 1.25 21.15 1.5 21.15C1.6 21.15 1.65 21.1 1.75 21.1C3.1 20.45 5.05 20 6.5 20C8.45 20 10.55 20.4 12 21.5C13.35 20.65 15.8 20 17.5 20C19.15 20 20.85 20.3 22.25 21.05C22.35 21.1 22.4 21.1 22.5 21.1C22.75 21.1 23 20.85 23 20.6V6C22.4 5.55 21.75 5.25 21 5M10 18.41C8.75 18.09 7.5 18 6.5 18C5.44 18 4.18 18.19 3 18.5V7.13C3.91 6.73 5.14 6.5 6.5 6.5C7.86 6.5 9.09 6.73 10 7.13V18.41Z" /></svg>
-                    </button>
-                    <button class="remove-button toggle-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4V10L15 8L13 10V4H9V20H12.1C12.2 20.7 12.5 21.4 12.8 22H7C5.9 22 5 21 5 20V19H3V17H5V13H3V11H5V7H3V5H5V4C5 2.9 5.9 2 7 2H19C20 2 21 3 21 4V13.8C20.4 13.4 19.7 13.2 19 13.1V4H17M5 19H7V17H5V19M5 13H7V11H5V13M5 7H7V5H5V7M20.1 15.5L18 17.6L15.9 15.5L14.5 16.9L16.6 19L14.5 21.1L15.9 22.5L18 20.4L20.1 22.5L21.5 21.1L19.4 19L21.5 16.9L20.1 15.5Z" /></svg>
-                    </button>
-                </div>
-        </div>             -->
-    </div>
+
+    <div id="grid-container"></div>
 </body>
 </html>

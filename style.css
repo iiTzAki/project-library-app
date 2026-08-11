@@ -11,7 +11,7 @@
 
 :root { 
     /* Colors */
-    --white-clr: #f5f5f5;
+    --white-clr: #fcfffd;
 
     --primary-brand-clr: #E2EAFC;
     --secondary-brand-clr: #F2F4FF;
@@ -33,10 +33,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: inherit;
 }
 
-html,
 body { 
     font-family: var(--secondary-font-stack), sans-serif;
     height: 100vh;
@@ -77,8 +75,8 @@ button:hover {
 }
 
 .header-container { 
-    padding: 25px;
-    font-size: clamp(16px, 3vw, 2rem);
+    padding: 1em;
+    font-size: clamp(16px, 5vw, 2.2rem);
 
     display: flex;
     justify-content: space-around;
@@ -90,14 +88,15 @@ button:hover {
 }
 
 .new-book-btn { 
-    padding: 1rem;
+    padding: 1em 1.2em;
     border-radius: 25px;
-    font-size: 1.1rem;
+    font-size: clamp(0.789rem, calc(1.5vw + 0.5rem), 1.125rem);
     font-weight: var(--font-weight-light);
     cursor: pointer;
     border: none;
     box-shadow: 10px 0 20px rgb(116, 112, 112);
     color: var(--brand-light-clr);
+    outline: none;
 }
 
 .header-container > div { 
@@ -165,7 +164,7 @@ button:hover {
     vertical-align: middle;
     width: 1.4em;
     height: 1.4em;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     margin-right: 5px;
     display: inline-block;
     background-image: url(./icons/notebook-plus-outline.svg);
@@ -178,6 +177,13 @@ button:hover {
     border: 2px solid gray;
     width: min(355px, calc(15vw + 10rem));
     margin: 7px;    
+}
+
+.form-input label { 
+    font-size: 1.8rem;
+    letter-spacing: 0.3px;
+    font-weight: var(--font-weight-normal);
+    font-family: var(--primary-font-stack);
 }
 
 .radio-btn-input { 
@@ -222,6 +228,8 @@ button:hover {
 
 .dialog-form > fieldset > legend { 
     padding: 5px;
+    font-size: 1.8rem;
+    font-family: var(--primary-font-stack);
 }
 
 .radio-tile-group {
@@ -282,11 +290,10 @@ input:checked + .radio-tile label {
     background-color: var(--secondary-brand-clr);
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-auto-rows: auto;
-    justify-content: start;
-    flex-wrap: wrap;
-    gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-auto-rows: 330px;
+    justify-content: center;
+    gap: 20px 50px;
 }
 
 .card-wrapper { 
@@ -343,21 +350,23 @@ input:checked + .radio-tile label {
 
 .book-details-wrapper > h1 { 
     font-size: 1.6rem;
-    color: #F6FFF8;
+    color: #f8faf8;
+    font-weight: var(--font-weight-extra-bold);
+    letter-spacing: 0.7px;
 }
 
 .text-wrapper > h3 { 
     font-weight: var(--font-weight-extra-bold);
-    color: var(--white-clr); 
+    color: rgb(230, 230, 230); 
     letter-spacing: 1px;
 }
 
 .text-wrapper > p { 
     font-weight: var(--font-weight-light);
-    color: var(--primary-brand-clr);
+    color: var(--white-clr);
 }
 
-.toggle-button-wrapper { 
+.button-wrapper { 
     align-self: flex-end;
 }
 
@@ -369,3 +378,4 @@ input:checked + .radio-tile label {
     border-radius: 10px;
     margin-left: 5px;
 }
+
