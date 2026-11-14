@@ -2,6 +2,7 @@ export function renderBookElements(books) {
     document.getElementById("grid-container").innerHTML = ""; 
     books.forEach(b => {
         createBookElement(
+            b.title,
             b.author, 
             b.pages, 
             b.readStatus, 
@@ -10,16 +11,17 @@ export function renderBookElements(books) {
     });
 }
 
-function createBookElement(author, pages, readStatus, bookId) { 
+function createBookElement(title, author, pages, readStatus, bookId) { 
 
     const getCardContainer = document.getElementById("grid-container");
     const cardWrapper = document.createElement("div")
     cardWrapper.className = "card-wrapper"
+    cardWrapper.setAttribute('data-book-id', bookId)
 
     const bookDetailsWrapper = document.createElement("div")
     bookDetailsWrapper.className = "book-details-wrapper"
     const bookTitle = document.createElement("h1")
-    bookTitle.textContent = author
+    bookTitle.textContent = title
 
     const textWrapperAuthor = document.createElement("div")
     textWrapperAuthor.className = "text-wrapper"
@@ -40,15 +42,13 @@ function createBookElement(author, pages, readStatus, bookId) {
     const readStatusText = document.createElement("h3")
     readStatusText.textContent = "Read Status:"    
     const bookStatus = document.createElement("p")
-    bookStatus.textContent = readStatus  
+    bookStatus.textContent = readStatus.replace(/\b\w/g, c => c.toUpperCase())  
       
     const buttonWrapper = document.createElement("div")
     buttonWrapper.className = "button-wrapper"
 
     const readBtn = document.createElement("button")
     const removeBtn = document.createElement("button")
-    readBtn.setAttribute("data-book-random-id", bookId)
-    removeBtn.setAttribute("data-book-random-id", bookId)
     readBtn.classList.add("read-button", "toggle-button")
     removeBtn.classList.add("remove-button", "toggle-button")
 

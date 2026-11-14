@@ -1,4 +1,4 @@
-const validReadStates = ["Already Read", "Not Read Yet"] 
+const validReadStates = ["already read", "not read yet"] 
 
 const validateTitle = (title) => { 
     if (typeof title !== "string" || title.trim() === "") { 
@@ -46,9 +46,9 @@ export class Book {
     }
 
     toggleReadStatus() { 
-        this.readStatus = this.readStatus === "Already Read" 
-        ? "Not Read Yet" 
-        : "Already Read"
+        this.#readStatus = this.#readStatus === "already read" 
+        ? "not read yet" 
+        : "already read"
     }
 
 }   
