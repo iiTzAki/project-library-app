@@ -61,11 +61,11 @@ function dialogEventListeners() {
 
   getDialog.addEventListener('click', (e) => !getDialogWrapper.contains(e.target) && getDialog.close());
   getHeaderContainer.addEventListener('click', (e) => {
-      if (e.target.classList.contains("new-book-btn")) { 
+      if (e.target.closest(".new-book-btn")) { 
         getDialog.showModal()
       }
 
-      if (e.target.classList.contains("close-dialog-btn")) { 
+      if (e.target.closest(".close-dialog-btn")) { 
         getDialog.close()
       }
     }) 
